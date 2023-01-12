@@ -1,9 +1,9 @@
 #! /bin/bash
 
 prime () {
-	for (( i=2; i<=$1; i++ ))
+	for (( i=2; i<$1; i++ ))
 	do
-		let "t=$1 % 2"
+		let "t=$1 % $i"
 		if [ $t -eq 0 ]
 		then 
 			return 0
@@ -30,3 +30,24 @@ generaterandom () {
 generaterandom
 ret=$?
 echo $ret
+
+echo
+
+#num=$(($ret))
+
+factorial () {
+        n=$(($1))
+        echo $n
+        f=1
+        i=1
+        while [ $i -le $n ];
+        do
+                f=`expr $f \* $i`
+        #       echo $f
+                i=`expr $i + 1`
+        done
+        #return $f
+        echo "Factorial of $n = $f"
+}
+
+factorial ret
